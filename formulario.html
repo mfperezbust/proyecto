@@ -1,88 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Formulario con Validación Instantánea</title>
-
-<!-- Vinculamos el archivo CSS -->
-<link rel="stylesheet" href="style.css">
-
-<!-- Librería Bulma para estilos base (opcional, pero bonita) -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario Proyecto</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 
 <body>
-<section class="section">
-  <div class="container">
-    <h1 class="title has-text-centered">Formulario de Inscripción</h1>
+  <section class="section">
+    <div class="container">
+      <h1 class="title has-text-centered">Formulario</h1>
 
-    <form class="box" style="max-width: 500px; margin: 0 auto;">
+      <form class="box">
 
-      <div class="field">
-        <label class="label" for="nombre">Nombre</label>
-        <div class="control">
-          <input class="input" type="text" id="nombre" name="nombre" required
-            pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{3,40}"
-            title="Solo letras y espacios, mínimo 3 caracteres.">
-          <p class="help" id="error-nombre">Solo letras y espacios, mínimo 3 caracteres.</p>
+        <!-- Campo de nombre -->
+        <div class="field">
+          <label class="label" for="nombre">Nombre</label>
+          <div class="control">
+            <input class="input" type="text" id="nombre" name="nombre">
+          </div>
         </div>
-      </div>
 
-      <div class="field">
-        <label class="label" for="telefono">Teléfono</label>
-        <div class="control">
-          <input class="input" type="text" id="telefono" name="telefono" required
-            pattern="[0-9]{10}"
-            title="Debe contener exactamente 10 dígitos.">
-          <p class="help" id="error-telefono">Debe contener exactamente 10 dígitos.</p>
+        <!-- Campo de teléfono -->
+        <div class="field">
+          <label class="label" for="telefono">Teléfono</label>
+          <div class="control">
+            <input class="input" type="text" id="telefono" name="telefono">
+          </div>
         </div>
-      </div>
 
-      <div class="field">
-        <label class="label" for="correo">Correo</label>
-        <div class="control">
-          <input class="input" type="email" id="correo" name="correo" required
-            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}"
-            title="Introduce un correo válido (ejemplo@dominio.com).">
-          <p class="help" id="error-correo">Introduce un correo válido (ejemplo@dominio.com).</p>
+        <!-- Campo de correo -->
+        <div class="field">
+          <label class="label" for="correo">Correo</label>
+          <div class="control">
+            <input class="input" type="email" id="correo" name="correo">
+          </div>
         </div>
-      </div>
 
-      <div class="field">
-        <label class="label" for="direccion">Dirección</label>
-        <div class="control">
-          <input class="input" type="text" id="direccion" name="direccion" required
-            pattern="[A-Za-z0-9\s\.,#\-]{5,100}"
-            title="Entre 5 y 100 caracteres. Se permiten letras, números, puntos y guiones.">
-          <p class="help" id="error-direccion">Entre 5 y 100 caracteres. Se permiten letras, números, puntos y guiones.</p>
+        <!-- Campo de dirección -->
+        <div class="field">
+          <label class="label" for="direccion">Dirección</label>
+          <div class="control">
+            <input class="input" type="text" id="direccion" name="direccion">
+          </div>
         </div>
-      </div>
 
-      <div class="field has-text-centered">
-        <button class="button is-primary" type="submit">Enviar</button>
-      </div>
+        <!-- Botón de envío -->
+        <div class="field has-text-centered">
+          <button class="button is-primary" type="submit">Enviar</button>
+        </div>
 
-    </form>
-  </div>
-</section>
-
-<!-- Script para validación en tiempo real -->
-<script>
-document.querySelectorAll("input").forEach(input => {
-  input.addEventListener("input", () => {
-    const errorMsg = document.getElementById("error-" + input.id);
-    if (input.checkValidity()) {
-      errorMsg.classList.remove("is-visible");
-      input.classList.add("is-valid");
-      input.classList.remove("is-invalid");
-    } else {
-      errorMsg.classList.add("is-visible");
-      input.classList.add("is-invalid");
-      input.classList.remove("is-valid");
-    }
-  });
-});
-</script>
+      </form>
+    </div>
+  </section>
 </body>
 </html>
